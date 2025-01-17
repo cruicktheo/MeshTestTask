@@ -70,12 +70,11 @@ namespace MeshTestTask
 		}
 
 		
-		public void Reset(float value)
+		public void Reset(Vector3 value)
 		{
-			foreach (var component in components)
-			{
-				component.Reset(value);
-			}
+			x.Reset(value.x);
+			y.Reset(value.y);
+			z.Reset(value.z);
 		}
 
 		public Vector3 GetCurrentValue()
