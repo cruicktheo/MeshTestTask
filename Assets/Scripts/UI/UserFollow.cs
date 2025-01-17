@@ -49,7 +49,7 @@ namespace MeshTestTask
 
             if (Vector3.Distance(thisPosition, userPosition) > USER_CENTER_DISTANCE_THRESHOLD)
             {
-                positionDamper.SetTargetValue(user.position);
+                positionDamper.SetTargetValue(userPosition);
             }
             
             UpdatePosition();
