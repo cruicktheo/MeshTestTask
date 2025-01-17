@@ -6,6 +6,7 @@ namespace MeshTestTask
     public class MeshObject : MonoBehaviour
     {
         private List<VisualisationAttribute> visualisationAttributes = new List<VisualisationAttribute>();
+        public Mesh Mesh { get; set; }
 
         public void AddVisualisationAttribute(VisualisationAttribute attribute)
         {
@@ -18,6 +19,22 @@ namespace MeshTestTask
             foreach(var attribute in visualisationAttributes)
             {
                 attribute.Update();
+            }
+        }
+
+        //private void LateUpdate()
+        //{
+        //    foreach (var attribute in visualisationAttributes)
+        //    {
+        //        attribute.LateUpdate();
+        //    }
+        //}
+
+        private void OnDestroy()
+        {
+            foreach(var attribute in visualisationAttributes)
+            {
+                attribute.Cleanup();
             }
         }
     }
