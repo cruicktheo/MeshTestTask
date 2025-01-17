@@ -12,5 +12,6 @@ namespace MeshTestTask
         public Vector3 ObjectScale;
         public Material ObjectAMaterial;
         public Material ObjectBMaterial;
+        public LissajousSettings LissajousSettings;
     }
 }
