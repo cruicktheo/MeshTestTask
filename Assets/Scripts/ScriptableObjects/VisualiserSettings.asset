@@ -16,6 +16,7 @@ MonoBehaviour:
   ObjectBName: Object B
   ObjectAStartPosition: {x: -0.5, y: 1.5, z: 1.5}
   ObjectBStartPosition: {x: 0.5, y: 1.5, z: 1.5}
-  ObjectScale: {x: 0.1, y: 0.1, z: 0.1}
+  ObjectScale: {x: 0.15, y: 0.15, z: 0.15}
   ObjectAMaterial: {fileID: 2100000, guid: a84e2c2fc01164644844c0779c898ea9, type: 2}
   ObjectBMaterial: {fileID: 2100000, guid: 52039482fdf73b142a07460e5b994f69, type: 2}
+  LissajousSettings: {fileID: 11400000, guid: 405ad3365d670d647a33a8e844043089, type: 2}
