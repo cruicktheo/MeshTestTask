@@ -5,7 +5,7 @@ The goal of this task is to create two procedural meshs that can be manipulated 
 
 The project was created in Unity 2022.3.33f1, and targets the Oculus Quest. Development was done using the Quest 3, however it should still run on other Quest devices, however this is untested. Also the controller models in the project are the Quest Touch Plus (Quest 3) controllers.
 
-The project can be build using the Unity build system without any changes. Ensure the MeshVisualiser.unity Scene is included in the build scenes.
+The project can be build using the Unity build system without any changes. Ensure the MeshVisualiser.unity Scene is included in the build scenes. A built APK with the latest changes exists in the repo for easy install.
 
 The following demonstration gifs inclue the OVR profiler overlay to show performance at 90hz.
 
@@ -56,3 +56,5 @@ It made the most sense for this project to have the UI dismiss itself when not i
 When creating the mesh deformation animation, I considered using the burst compiler to create parallel jobs or use a compute shader to make this more performant, but found the performance to be fine on the headset at 90hz. If the meshes were more complex, or there were more of them I would have taken this approach.
 
 The decision was made to not have the visualisations be MonoBehaviours and rather classes that can be updated from a central script on the created mesh object. This seemed like a nicely extensible approach.
+
+The decision was made to exclude the cone in the mesh deformation animation for clarity purposes.
