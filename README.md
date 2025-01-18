@@ -47,7 +47,7 @@ Selecting the mesh animation option makes the first objects mesh deform using pe
 ## Combined
 ![](https://github.com/cruicktheo/MeshTestTask/blob/main/DemonstrationGifs/AllDemonstration.GIF)
 
-Demonstrated here are all options toggled together, showing combine functionality.
+Demonstrated here are all options toggled together, showing combine functionality. Note: the demonstration gifs were taken before a bug was fixed causing the indication cone to show its inner face, and has been since fixed.
 
 ## Considerations
 
