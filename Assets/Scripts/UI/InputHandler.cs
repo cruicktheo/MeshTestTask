@@ -6,6 +6,7 @@ namespace MeshTestTask
 {
     public class InputHandler : MonoBehaviour
     {
+        #region Fields
         private const float GRIP_TIME_SECONDS = 0.3f;
         [SerializeField] private InputDevice leftController;
         [SerializeField] private InputDevice rightController;
@@ -13,7 +14,9 @@ namespace MeshTestTask
         private bool rightWasGripped;
         private float leftGripHoldStartTime;
         private float rightGripHoldStartTime;
+        #endregion
 
+        #region Unity Methods
         private void Update()
         {
             if (!leftController.isValid || !rightController.isValid)
@@ -25,8 +28,16 @@ namespace MeshTestTask
                 CheckInputs();
             }
         }
+        #endregion
 
+        #region Implementation
         private void CheckInputs()
+        {
+            CheckLeftTrigger();
+            CheckRightTrigger();
+        }
+
+        private void CheckLeftTrigger()
         {
             if (leftController.TryGetFeatureValue(CommonUsages.triggerButton, out bool leftGripOn))
             {
@@ -52,7 +63,10 @@ namespace MeshTestTask
                     }
                 }
             }
+        }
 
+        private void CheckRightTrigger()
+        {
             if (rightController.TryGetFeatureValue(CommonUsages.triggerButton, out bool rightGripOn))
             {
                 if (rightGripOn)
@@ -102,6 +116,7 @@ namespace MeshTestTask
                 inputDevice = devices[0];
             }
         }
+        #endregion
     }
 
 }

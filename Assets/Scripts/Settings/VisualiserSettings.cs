@@ -5,6 +5,7 @@ namespace MeshTestTask
     [CreateAssetMenu(fileName = "VisualiserSettings", menuName = "ScriptableObjects/VisualiserSettings")]
     public class VisualiserSettings : ScriptableObject
     {
+        #region Fields
         public string ObjectAName;
         public string ObjectBName;
         public Vector3 ObjectAStartPosition;
@@ -13,5 +14,6 @@ namespace MeshTestTask
         public Material ObjectAMaterial;
         public Material ObjectBMaterial;
         public LissajousSettings LissajousSettings;
+        #endregion
     }
 }

@@ -4,11 +4,14 @@ namespace MeshTestTask
 {
     public class MeshObjectManager : MonoBehaviour
     {
+        #region Fields
         private const float REFRESH_RATE = 90f;
         [SerializeField] private GameObject objectParent;
         [SerializeField] private ObjectControllerAttractor objectControllerAttractor;
         [SerializeField] private VisualiserSettings visualiserSettings;
+        #endregion
 
+        #region Unity Methods
         private void Awake()
         {
             // Set project at a 90hz refersh rate
@@ -19,7 +22,9 @@ namespace MeshTestTask
         {
             CreateMeshObjects();
         }
+        #endregion
 
+        #region Implementation
         private void CreateMeshObjects()
         {
             var objectA = MeshShapeCreator.CreateSphere(visualiserSettings.ObjectAName, visualiserSettings.ObjectAMaterial, visualiserSettings.ObjectAStartPosition, true);
@@ -40,5 +45,6 @@ namespace MeshTestTask
             objectA.AddVisualisationAttribute(new ObjectRotator(objectA.transform, objectB.transform));
             objectA.AddVisualisationAttribute(new RotationalColorizer(visualiserSettings.ObjectAMaterial, objectA.transform, objectB.transform));
         }
+        #endregion
     }
 }

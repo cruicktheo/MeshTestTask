@@ -2,7 +2,8 @@
 {
 	public static class FloatExtensions
 	{
-		public static float ClampToSigned180DegreeRange(this float source)
+        #region Methods
+        public static float ClampToSigned180DegreeRange(this float source)
 		{
 			if (source > 180f)
 			{
@@ -30,5 +31,6 @@
 
 			return clampedAngle + 360;
 		}
-	}
+        #endregion
+    }
 }

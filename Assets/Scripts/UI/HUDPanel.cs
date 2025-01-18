@@ -5,6 +5,7 @@ namespace MeshTestTask
 {
     public class HUDPanel : MonoBehaviour
     {
+        #region Fields
         private readonly Color ButtonOnColor = Color.green;
         private readonly Color ButtonOffColor = Color.white;
         [SerializeField] private Image lissajousAnimatorButton;
@@ -15,7 +16,9 @@ namespace MeshTestTask
         private bool meshAnimationButtonOn;
         private bool objectRotatorButtonOn;
         private bool rotationalColorButtonOn;
+        #endregion
 
+        #region Methods
         public void OnToggleLissajousAnimatorPressed()
         {
             lissajousButtonOn = !lissajousButtonOn;
@@ -43,10 +46,13 @@ namespace MeshTestTask
             SetButtonColorFromStatus(rotationalColorButton, rotationalColorButtonOn);
             Events.OnToggleRotationalColor?.Invoke();
         }
+        #endregion
 
+        #region Implementation
         private void SetButtonColorFromStatus(Image button, bool isOn)
         {
             button.color = isOn ? ButtonOnColor : ButtonOffColor;
         }
+        #endregion
     }
 }

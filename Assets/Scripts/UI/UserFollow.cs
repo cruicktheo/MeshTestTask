@@ -4,13 +4,16 @@ namespace MeshTestTask
 {
     public class UserFollow : MonoBehaviour
     {
+        #region Fields
         private const float EASE_TIME = 0.1f;
         private const float ROTATION_THRESHOLD_DEGREES = 45f;
         private const float USER_CENTER_DISTANCE_THRESHOLD = 2f;
         [SerializeField] private Transform user;
         private FloatCriticalDamper rotationDamper;
         private Vector3CriticalDamper positionDamper;
+        #endregion
 
+        #region Unity Methods
         private void Start()
         {
             rotationDamper = new FloatCriticalDamper();
@@ -24,7 +27,9 @@ namespace MeshTestTask
             CheckRotation();
             CheckPosition();
         }
+        #endregion
 
+        #region Implementation
         private void CheckRotation()
         {
             var userXRotation = user.transform.rotation.eulerAngles.y.ClampToSigned180DegreeRange();
@@ -66,5 +71,6 @@ namespace MeshTestTask
             positionDamper.Update(Time.deltaTime);
             transform.position = positionDamper.GetCurrentValue();
         }
+        #endregion
     }
 }

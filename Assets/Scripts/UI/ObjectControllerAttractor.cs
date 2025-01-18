@@ -4,6 +4,7 @@ namespace MeshTestTask
 {
     public class ObjectControllerAttractor : MonoBehaviour
     {
+        #region Fields
         private const float EASE_TIME = 0.1f;
         [SerializeField] private Transform leftController;
         [SerializeField] private Transform rightController;
@@ -18,13 +19,31 @@ namespace MeshTestTask
         private bool isObjectAReset = true;
         private bool isObjectBReset = true;
         private bool isInitialised;
+        #endregion
 
+        #region Unity Methods
         private void OnEnable()
         {
             Events.OnLeftGripHeld += OnLeftGripHeld;
             Events.OnRightGripHeld += OnRightGripHeld;
             Events.OnLeftGripReleased += OnLeftGripReleased;
             Events.OnRightGripReleased += OnRightGripReleased;
+        }
+
+        public void LateUpdate()
+        {
+            if (isInitialised)
+            {
+                if (leftHeld || (!leftHeld && !isObjectAReset))
+                {
+                    UpdateLeft();
+                }
+
+                if (rightHeld || (!rightHeld && !isObjectBReset))
+                {
+                    UpdateRight();
+                }
+            }
         }
 
         private void OnDisable()
@@ -34,7 +53,9 @@ namespace MeshTestTask
             Events.OnLeftGripReleased -= OnLeftGripReleased;
             Events.OnRightGripReleased -= OnRightGripReleased;
         }
+        #endregion
 
+        #region Methods
         public void Initialise(Transform objectA, Transform objectB)
         {
             this.objectA = objectA;
@@ -48,7 +69,9 @@ namespace MeshTestTask
 
             isInitialised = true;
         }
+        #endregion
 
+        #region Implementation
         private void OnLeftGripHeld()
         {
             objectAAttractDamper.Reset(objectA.position);
@@ -71,22 +94,6 @@ namespace MeshTestTask
         {
             objectBAttractDamper.Reset(objectB.localPosition);
             rightHeld = false;
-        }
-
-        public void LateUpdate()
-        {
-            if (isInitialised)
-            {
-                if (leftHeld || (!leftHeld && !isObjectAReset))
-                {
-                    UpdateLeft();
-                }
-
-                if (rightHeld || (!rightHeld && !isObjectBReset))
-                {
-                    UpdateRight();
-                }
-            }
         }
 
         private void UpdateLeft()
@@ -138,5 +145,6 @@ namespace MeshTestTask
                 }
             }
         }
+        #endregion
     }
 }

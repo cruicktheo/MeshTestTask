@@ -4,18 +4,23 @@ namespace MeshTestTask
 {
     public class ObjectRotator : VisualisationAttribute
     {
+        #region Fields
         private const float ROTATION_SPEED_RADIANS = 1f;
         private Transform parent;
         private Transform target;
         private Quaternion originalRotation;
+        #endregion
 
+        #region Constructor
         public ObjectRotator(Transform parent, Transform target)
         {
             this.parent = parent;
             this.target = target;
             Events.OnToggleObjectRotator += OnToggled;
         }
+        #endregion
 
+        #region Methods
         public override void Update()
         {
             if (IsActive)
@@ -32,7 +37,9 @@ namespace MeshTestTask
         {
             Events.OnToggleObjectRotator -= OnToggled;
         }
+        #endregion
 
+        #region Implementation
         private void OnToggled()
         {
             if (IsActive)
@@ -46,5 +53,6 @@ namespace MeshTestTask
 
             ToggleAttributeActive();
         }
+        #endregion
     }
 }

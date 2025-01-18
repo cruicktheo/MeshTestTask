@@ -4,11 +4,14 @@ namespace MeshTestTask
 {
     public class RotationalColorizer : VisualisationAttribute
     {
+        #region Fields
         private Material material;
         private Transform parent;
         private Transform target;
         private Color startColor;
+        #endregion
 
+        #region Constructor
         public RotationalColorizer(Material material, Transform parent, Transform target)
         {
             this.material = material;
@@ -16,7 +19,9 @@ namespace MeshTestTask
             this.target = target;
             Events.OnToggleRotationalColor += OnToggled;
         }
+        #endregion
 
+        #region Methods
         public override void Update()
         {
             if (IsActive)
@@ -32,7 +37,9 @@ namespace MeshTestTask
         {
             Events.OnToggleRotationalColor -= OnToggled;
         }
+        #endregion
 
+        #region Implementation
         private void ColorFromDotProduct(float dotProduct)
         {
             // Remap dot product to color value
@@ -59,5 +66,6 @@ namespace MeshTestTask
 
             ToggleAttributeActive();
         }
+        #endregion
     }
 }

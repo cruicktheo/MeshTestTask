@@ -4,15 +4,20 @@ namespace MeshTestTask
 {
     public class MeshVertexAnimator : VisualisationAttribute
     {
+        #region Fields
         private Mesh mesh;
         private Vector3[] originalVertices;
+        #endregion
 
+        #region Constructor
         public MeshVertexAnimator(Mesh mesh)
         {
             this.mesh = mesh;
             Events.OnToggleMeshVertexAnimation += OnToggled;
         }
+        #endregion
 
+        #region Methods
         public override void Update()
         {
             if (IsActive)
@@ -25,7 +30,9 @@ namespace MeshTestTask
         {
             Events.OnToggleMeshVertexAnimation -= OnToggled;
         }
+        #endregion
 
+        #region Implementation
         private void SetVertexNoise()
         {
             var vertices = new Vector3[mesh.vertexCount];
@@ -55,5 +62,6 @@ namespace MeshTestTask
 
             ToggleAttributeActive();
         }
+        #endregion
     }
 }

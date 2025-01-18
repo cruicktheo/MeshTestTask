@@ -5,6 +5,7 @@ namespace MeshTestTask
 {
     public class LissajousPanel : MonoBehaviour
     {
+        #region Fields
         private const float FLOAT_STEP = 0.1f;
         private const string FLOAT_STRING_FORMAT = "N1";
         [SerializeField] GameObject root;
@@ -14,7 +15,9 @@ namespace MeshTestTask
         [SerializeField] private TMP_Text aValue;
         [SerializeField] private TMP_Text bValue;
         [SerializeField] private TMP_Text deltaValue;
+        #endregion
 
+        #region Unity Methods
         private void Start()
         {
             SetValueDisplays();
@@ -29,7 +32,9 @@ namespace MeshTestTask
         {
             Events.OnToggleLissajousAnimator += ToggleShowRoot;
         }
+        #endregion
 
+        #region Methods
         public void OnADecremented()
         {
             settings.A--;
@@ -89,7 +94,9 @@ namespace MeshTestTask
             settings.delta += FLOAT_STEP;
             SetValueDisplays();
         }
+        #endregion
 
+        #region Implementation
         private void SetValueDisplays()
         {
             AValue.text = settings.A.ToString();
@@ -103,5 +110,6 @@ namespace MeshTestTask
         {
             root.SetActive(!root.activeSelf);
         }
+        #endregion
     }
 }

@@ -2,7 +2,7 @@
 
 namespace MeshTestTask
 {
-	public class LookPitchReactiveUI : MonoBehaviour
+    public class LookPitchReactiveUI : MonoBehaviour
 	{
 		#region Enums
 		private enum State
@@ -14,12 +14,12 @@ namespace MeshTestTask
 
 		#region Fields
 		[SerializeField] private Transform userHead;
-		[SerializeField] private float _inactiveXRotation = 0f;
-		[SerializeField] private float _activeXRotation	= -45f;
-		[SerializeField] private float _activeZRotationFollow = 45f;
-		[SerializeField] private float _movementEaseTime = 0.2f;
-		[SerializeField] private float _pitchToActivate = 40f;
-		[SerializeField] private float _pitchToDeactivate = 20f;
+		[SerializeField] private float inactiveXRotation = 0f;
+		[SerializeField] private float activeXRotation	= -45f;
+		[SerializeField] private float activeZRotationFollow = 45f;
+		[SerializeField] private float movementEaseTime = 0.2f;
+		[SerializeField] private float pitchToActivate = 30f;
+		[SerializeField] private float pitchToDeactivate = 15f;
 	
 		private FloatCriticalDamper	_pitchDamper = new FloatCriticalDamper(true);
 		private FloatCriticalDamper	_yawDamper = new FloatCriticalDamper(true);
@@ -29,8 +29,8 @@ namespace MeshTestTask
 		#region Unity Methods
 		private void Start()
 		{
-			_pitchDamper.SetEaseTime(_movementEaseTime);
-			_yawDamper.SetEaseTime(_movementEaseTime);
+			_pitchDamper.SetEaseTime(movementEaseTime);
+			_yawDamper.SetEaseTime(movementEaseTime);
 		}
 
 		private void Update()
@@ -50,11 +50,11 @@ namespace MeshTestTask
 		#region Implementation
 		private void SetState(float headXRotation)
 		{
-			if (headXRotation > _pitchToActivate)
+			if (headXRotation > pitchToActivate)
 			{
 				_activeState = State.Active;
 			}
-			else if (headXRotation < _pitchToDeactivate)
+			else if (headXRotation < pitchToDeactivate)
 			{
 				_activeState = State.Inactive;
 			}
@@ -65,11 +65,11 @@ namespace MeshTestTask
 			switch (_activeState)
 			{
 				case State.Active:
-					_pitchDamper.SetTargetValue(_activeXRotation);
+					_pitchDamper.SetTargetValue(activeXRotation);
 					CheckYawDelta(headYRotation);
 					break;
 				case State.Inactive:
-					_pitchDamper.SetTargetValue(_inactiveXRotation);
+					_pitchDamper.SetTargetValue(inactiveXRotation);
 					break;
 			}
 		}
@@ -84,7 +84,7 @@ namespace MeshTestTask
 		{
 			var uiYRotation	= transform.rotation.eulerAngles.y.ClampToSigned180DegreeRange();
 			
-			if (Mathf.Abs(uiYRotation - headYRotation) >= _activeZRotationFollow)
+			if (Mathf.Abs(uiYRotation - headYRotation) >= activeZRotationFollow)
 			{
 				_yawDamper.SetTargetValue(headYRotation);
 			}

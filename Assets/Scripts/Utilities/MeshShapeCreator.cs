@@ -4,6 +4,7 @@ namespace MeshTestTask
 {
     public static class MeshShapeCreator
     {
+        #region Fields
         private const string CONE_NAME = "Cone";
         private const float CONE_POSITION_Z = 0.9f;
         private const float SPHERE_RADIUS = 1f;
@@ -13,7 +14,9 @@ namespace MeshTestTask
         private const float CONE_HEIGHT = 0.8f;
         private const float CONE_RADIUS = 0.4f;
         private static readonly Vector3 ConeRotation = new Vector3(90f, 0f, 0f);
+        #endregion
 
+        #region Methods
         public static MeshObject CreateSphere(string name, Material material, Vector3 startPosition, bool addForwardCone = false)
         {
             var mesh = CreateSphereMesh();
@@ -26,8 +29,10 @@ namespace MeshTestTask
 
             return CreateSphereObject(mesh, name, material, startPosition, cone);
         }
+        #endregion
 
-        public static Mesh CreateSphereMesh()
+        #region Implementation
+        private static Mesh CreateSphereMesh()
         {
             Mesh mesh = new Mesh();
             mesh.vertices = CreateSphereVertices();
@@ -193,5 +198,6 @@ namespace MeshTestTask
 
             return triangles;
         }
+        #endregion
     }
 }
