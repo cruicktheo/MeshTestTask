@@ -5,6 +5,7 @@ namespace MeshTestTask
     public class MeshVertexAnimator : VisualisationAttribute
     {
         #region Fields
+        private const float NOISE_MULTIPLIER = 0.5f;
         private Mesh mesh;
         private Vector3[] originalVertices;
         #endregion
@@ -40,10 +41,10 @@ namespace MeshTestTask
             for (var i = 0; i < vertices.Length; i++)
             {
                 var vertex = originalVertices[i];
-                var noiseX = vertex.x * 1f + Time.time * 1f;
-                var noiseY = vertex.y * 1f + Time.time * 1f;
+                var noiseX = vertex.x + Time.time;
+                var noiseY = vertex.y + Time.time;
 
-                vertices[i] = vertex + mesh.normals[i] * Mathf.PerlinNoise(noiseX, noiseY) * 0.5f;
+                vertices[i] = vertex + mesh.normals[i] * Mathf.PerlinNoise(noiseX, noiseY) * NOISE_MULTIPLIER;
             }
 
             mesh.vertices = vertices;

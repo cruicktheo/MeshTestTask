@@ -32,12 +32,12 @@ namespace MeshTestTask
         #region Implementation
         private void CheckRotation()
         {
-            var userXRotation = user.transform.rotation.eulerAngles.y.ClampToSigned180DegreeRange();
-            var thisXRotation = transform.rotation.eulerAngles.y.ClampToSigned180DegreeRange();
+            var userYRotation = user.transform.rotation.eulerAngles.y.ClampToSigned180DegreeRange();
+            var thisYRotation = transform.rotation.eulerAngles.y.ClampToSigned180DegreeRange();
 
-            if (Mathf.Abs(userXRotation - thisXRotation) > ROTATION_THRESHOLD_DEGREES)
+            if (Mathf.Abs(userYRotation - thisYRotation) > ROTATION_THRESHOLD_DEGREES)
             {
-                rotationDamper.SetTargetValue(userXRotation);
+                rotationDamper.SetTargetValue(userYRotation);
             }
 
             UpdateRotation();
