@@ -181,8 +181,8 @@ namespace MeshTestTask
             for (int i = 0; i < CONE_SEGMENTS; i++)
             {
                 triangles[triangleIndex] = 0;
-                triangles[triangleIndex + 1] = i + 1;
-                triangles[triangleIndex + 2] = ((i + 1) % CONE_SEGMENTS) + 1;
+                triangles[triangleIndex + 2] = i + 1;
+                triangles[triangleIndex + 1] = ((i + 1) % CONE_SEGMENTS) + 1;
 
                 triangleIndex += 3;
             }
@@ -190,8 +190,8 @@ namespace MeshTestTask
             for (int i = 0; i < CONE_SEGMENTS; i++)
             {
                 triangles[triangleIndex] = CONE_SEGMENTS + 1;
-                triangles[triangleIndex + 1] = ((i + 1) % CONE_SEGMENTS) + 1;
-                triangles[triangleIndex + 2] = i + 1;
+                triangles[triangleIndex + 2] = ((i + 1) % CONE_SEGMENTS) + 1;
+                triangles[triangleIndex + 1] = i + 1;
 
                 triangleIndex += 3;
             }
