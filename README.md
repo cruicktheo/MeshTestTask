@@ -37,7 +37,7 @@ The rotational coloriser colors the first object based on where the second objec
 
 ![](https://github.com/cruicktheo/MeshTestTask/blob/main/DemonstrationGifs/LissajousAnimatorDemonstration.GIF)
 
-Selecting the lissajous animation option makes the first object float on x and y in a lissajous manner. Selecting this option enables a second UI panel where the variables of the lissajous formula can be manipulated and the results viewed in real time. Note: when this object is attracted to the left controller the animation will stop and resume once released.
+Selecting the lissajous animation option makes the first object float on x and y in a lissajous manner. Selecting this option enables a second UI panel where the variables of the lissajous formula can be manipulated and the results viewed in real time. Note: when this object is attracted to the left controller the animation will stop and resume once released. Manipulating values will only change the animation of the first object. The gif only shows object A animating, but this bug was since fixed.
 
 ## Mesh Animation
 

@@ -41,6 +41,7 @@ namespace MeshTestTask
         private void AddVisualisationAttributes(MeshObject objectA, MeshObject objectB)
         {
             objectA.AddVisualisationAttribute(new LissajousAnimator(visualiserSettings.LissajousSettings, objectA.transform));
+            objectB.AddVisualisationAttribute(new LissajousAnimator(visualiserSettings.LissajousSettings, objectB.transform, true));
             objectA.AddVisualisationAttribute(new MeshVertexAnimator(objectA.Mesh));
             objectA.AddVisualisationAttribute(new ObjectRotator(objectA.transform, objectB.transform));
             objectA.AddVisualisationAttribute(new RotationalColorizer(visualiserSettings.ObjectAMaterial, objectA.transform, objectB.transform));
