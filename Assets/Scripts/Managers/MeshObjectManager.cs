@@ -22,7 +22,7 @@ namespace MeshTestTask
 
         private void CreateMeshObjects()
         {
-            var objectA = MeshShapeCreator.CreateSphere(visualiserSettings.ObjectAName, visualiserSettings.ObjectAMaterial, visualiserSettings.ObjectAStartPosition);
+            var objectA = MeshShapeCreator.CreateSphere(visualiserSettings.ObjectAName, visualiserSettings.ObjectAMaterial, visualiserSettings.ObjectAStartPosition, true);
             var objectB = MeshShapeCreator.CreateSphere(visualiserSettings.ObjectBName, visualiserSettings.ObjectBMaterial, visualiserSettings.ObjectBStartPosition);
             objectA.transform.parent = objectParent.transform;
             objectB.transform.parent = objectParent.transform;
